@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "7f7861c0-513b-4c0b-b319-1d046b90770d",
+		"name": "Krungsri_Test_2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "post_fail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5864d508-22bc-413a-a548-438794eb4120",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"   pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type should be text/html\", function () {\r",
+							"   pm.response.headers.get(\"Content-Type\", \"text/html\");\r",
+							"});\r",
+							"\r",
+							"var cheerio = require('cheerio');\r",
+							"var $ = cheerio.load(pm.response.text());\r",
+							"pm.test('Page title should be set', function () {\r",
+							"    pm.expect($('title').text()).to.equal('404 Not Found'); \r",
+							"});\r",
+							"\r",
+							"var $ = cheerio.load(pm.response.text());\r",
+							"pm.test('Response should match with \"The requested URL was not found on the server.\" in body', function () {\r",
+							"    pm.expect($('p').text()).to.contains('The requested URL was not found on the server.'); \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://httpbin.org/post ",
+					"protocol": "http",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"post "
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
