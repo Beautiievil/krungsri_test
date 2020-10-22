@@ -1,0 +1,14 @@
+{
+	"id": "71fd6e0c-3f1c-40ab-8458-a5973511845d",
+	"name": "jsonplaceholder_env",
+	"values": [
+		{
+			"key": "url",
+			"value": "https://jsonplaceholder.typicode.com",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-10-22T07:27:25.956Z",
+	"_postman_exported_using": "Postman/7.34.0"
+}

@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "006958cc-fe78-4254-8e6e-0dde5029be99",
+		"name": "Krungsri_Test_1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get_todos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d2fd5dc0-51e0-4b44-bd9c-3fe4777926e4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"userId should be \"+ data[\"assert\"][\"userId\"], function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].userId).to.eql(data[\"assert\"][\"userId\"]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"id should be \"+ data[\"assert\"][\"id\"], function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].id).to.eql(data[\"assert\"][\"id\"]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"title should be \"+ data[\"assert\"][\"title\"], function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].title).to.eql(data[\"assert\"][\"title\"]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"completed status should be \"+ data[\"assert\"][\"completed\"], function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].completed).to.eql(data[\"assert\"][\"completed\"]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/todos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
