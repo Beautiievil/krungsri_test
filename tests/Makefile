@@ -8,7 +8,9 @@ run_test_3:
 	newman run tests\atdd\api\verify_basic_authen_success.json -e tests\atdd\api\environment\binorg_env.json -d tests\atdd\api\testdata\verify_basic_authen_success.json
 
 run_all_test:
-	newman run .\tests\atdd\api\get_todos_success.json -e .\tests\atdd\api\environment\jsonplaceholder_env1.json -d .\tests\atdd\api\testdata\get_todos_success.json
+	newman run tests\atdd\api\get_todos_success.json -e tests\atdd\api\environment\jsonplaceholder_env1.json -d tests\atdd\api\testdata\get_todos_success.json
 	newman run tests\atdd\api\post_fail.json -e tests\atdd\api\environment\binorg_env.json
 	newman run tests\atdd\api\verify_basic_authen_success.json -e tests\atdd\api\environment\binorg_env.json -d tests\atdd\api\testdata\verify_basic_authen_success.json
-	
+
+stop_newman_run:
+	newman run tests\atdd\api\verify_basic_authen_fail.json --bail -e tests\atdd\api\environment\binorg_env.json -d tests\atdd\api\testdata\verify_basic_authen_success.json
