@@ -1,0 +1,14 @@
+{
+	"id": "c74cc1a0-4b8c-45a9-9b68-dc4688bf2a1b",
+	"name": "binorg_env",
+	"values": [
+		{
+			"key": "url",
+			"value": "http://httpbin.org",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-10-22T09:14:09.394Z",
+	"_postman_exported_using": "Postman/7.34.0"
+}

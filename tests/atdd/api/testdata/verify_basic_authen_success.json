@@ -1,0 +1,9 @@
+[{
+    "case": "Verify_basic_authentication_success",
+    "username": "user",
+    "password": "pass",
+    "assert": {
+        "authenticated": true,
+        "user": "user"
+    }
+}]
