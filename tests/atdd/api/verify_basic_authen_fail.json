@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "a7c449c1-d3ee-4710-a461-251e42961afd",
+		"name": "Krungsri_Test_4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "verify_basic_authentication_fail_stop_collection_running",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4cde5f4e-4e5c-402c-af27-a9e7601f5272",
+						"exec": [
+							"pm.test(\"Status code should be 500\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"authenticated should be \"+ data[\"assert\"][\"authenticated\"], function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.authenticated).to.eql(data[\"assert\"][\"authenticated\"]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"user should be \"+ data[\"assert\"][\"user\"], function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.user).to.eql(data[\"assert\"][\"user\"]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pass}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://httpbin.org/basic-auth/{{user}}/{{pass}}",
+					"protocol": "http",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"basic-auth",
+						"{{user}}",
+						"{{pass}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "ce8389fc-1e34-4211-9fce-d582e868f9b7",
+			"key": "user",
+			"value": "user"
+		},
+		{
+			"id": "bfb54bff-739c-48ea-bd35-75450a5b2aae",
+			"key": "pass",
+			"value": "pass"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
