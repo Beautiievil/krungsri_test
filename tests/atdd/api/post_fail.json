@@ -41,8 +41,11 @@
 					}
 				}
 			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -56,11 +59,9 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://httpbin.org/post ",
-					"protocol": "http",
+					"raw": "{{url}}/post ",
 					"host": [
-						"httpbin",
-						"org"
+						"{{url}}"
 					],
 					"path": [
 						"post "
